@@ -1,4 +1,6 @@
-#include <iostream>
+// Problem: Find the longest consecutive winning streak
+// Approach: Track the current winning streak and update the maximum streak
+include <iostream>
 #include <vector>
 
 using namespace std;
