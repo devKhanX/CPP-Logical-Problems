@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int arr[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int number;
+    int start = 0;
+    int end = n - 1;
+    int mid;
+    int loc = -1;
+    cout << "Enter number to find: ";
+    cin >> number;
+    while (start <= end)
+    {
+        mid = start + (end - start) / 2;
+        if (arr[mid] == number)
+        {
+            loc = mid;
+            break;
+        }
+        else if (number < arr[mid])
+        {
+            end = mid - 1;
+        }
+        else
+        {
+            start = mid + 1;
+        }
+    }
+    if (loc == -1)
+        cout << number << " Number not found!";
+    else
+        cout << number << " Found at index " << loc;
+    return 0;
+}
