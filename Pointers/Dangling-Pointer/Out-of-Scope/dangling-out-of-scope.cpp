@@ -1,18 +1,18 @@
-//Returning the Address of a Local Variable from a function.
+//Variable Going Out of Scope
 #include<iostream>
 using namespace std;
-int* getPointer()
-{
-	int value=10;
-	return &value;
-}
 int main()
 {
-	int *ptr=getPointer();
+	int *ptr;
+	{
+		int value=500;
+		ptr=&value;
+	}
 	cout<<*ptr;
-  	return 0;
+	return 0;
 }
 /*Output
 Undefined Behavior
-Explanation: The local variable is destroyed when the function returns,
-leaving the returned pointer dangling.*/
+Explanation: Although the program may print 100 on some systems, 
+the variable has already gone out of scope. Accessing it 
+is undefined behavior, so the output is not guaranteed.*/
